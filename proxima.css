@@ -1,0 +1,260 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #D9D2B9;
+    min-height: 100vh;
+    padding-top: 100px;
+}
+
+/* ========== NAVBAR ========== */
+.navbar {
+    background: linear-gradient(135deg, #1F2A1F 0%, #2d3f2d 100%);
+    padding: 1rem 2rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    border-radius: 0 0 22px 22px;
+    width: 100%;
+}
+
+.subnav {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+}
+
+.subnav-container {
+    width: min(1400px, calc(100% - 4rem));
+    background: #95873B;
+    border: 1px solid rgba(217, 210, 185, 0.2);
+    border-radius: 24px;
+    padding: 1rem 1.5rem;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.subnav-title {
+    align-self: center;
+    background: rgba(217, 210, 185, 0.15);
+    border: 1px solid rgba(217, 210, 185, 0.4);
+    border-radius: 999px;
+    color: #D9D2B9;
+    padding: 0.65rem 1.5rem;
+    font-weight: 600;
+    font-size: 0.95rem;
+    width: fit-content;
+}
+
+.subnav-options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+}
+
+.subnav-options label {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(217, 210, 185, 0.08);
+    border: 1px solid rgba(217, 210, 185, 0.2);
+    border-radius: 999px;
+    padding: 0.7rem 1rem;
+    color: #D9D2B9;
+    cursor: pointer;
+    font-size: 0.95rem;
+}
+
+.subnav-options input {
+    width: 1rem;
+    height: 1rem;
+    accent-color: #D9D2B9;
+}
+
+.navbar-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1400px;
+    margin: 0 auto;
+    gap: 2rem;
+}
+
+.navbar-logo {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    color: #D9D2B9;
+    text-decoration: none;
+    flex-shrink: 0;
+}
+/* Logo do site ========================================================*/
+.logo-icon {
+    width: auto;
+    height: 32px;
+    max-width: 100px;
+    object-fit: contain;
+    display: block;
+    color: #D9D2B9;
+}
+
+.navbar-logo span {
+    font-size: 1.25rem;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.navbar-search {
+    flex: 1;
+    max-width: 400px;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.search-input {
+    width: 100%;
+    padding: 0.75rem 1.2rem 0.75rem 1.2rem;
+    border: 2px solid #D9D2B9;
+    border-radius: 25px;
+    background-color: rgba(217, 210, 185, 0.1);
+    color: #D9D2B9;
+    font-size: 0.95rem;
+    font-family: 'Poppins', sans-serif;
+    transition: all 0.3s ease;
+}
+
+.search-input::placeholder {
+    color: #B8AFA0;
+}
+
+.search-input:focus {
+    outline: none;
+    background-color: rgba(217, 210, 185, 0.2);
+    border-color: #D9D2B9;
+}
+
+.search-btn {
+    position: absolute;
+    right: 12px;
+    background: none;
+    border: none;
+    color: #D9D2B9;
+    cursor: pointer;
+    padding: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s ease;
+}
+
+.search-btn:hover {
+    transform: scale(1.1);
+}
+/* Menu de navegação ==========================================================*/
+.navbar-menu {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    flex-shrink: 0;
+}
+
+.menu-btn {
+    background-color: transparent;
+    color: #D9D2B9;
+    border: 2px solid #D9D2B9;
+    padding: 0.6rem 1.2rem;
+    border-radius: 20px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'Poppins', sans-serif;
+}
+
+.menu-btn:hover {
+    background-color: #D9D2B9;
+    color: #1F2A1F;
+}
+
+
+.content {
+    text-align: center;
+    color: #D9D2B9;
+    padding-top: 100px;
+}
+
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+}
+/* ========== Botão de voltar ========== */
+.back-button {
+    padding: 12px 24px;
+    background-color: #D9D2B9;
+    color: #1F2A1F;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    z-index: 110;
+}
+
+.back-button:hover {
+    background-color: #c5bea4;
+}
+/*================== Restaurantes ==============================*/
+.container {
+    display: flex;
+    flex-direction: row;
+    width: 800px;
+    height: 400px;
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+h1, h2 {
+    margin: 0;
+}
+
+h1 {
+    width: 100%;
+    text-align: center;
+}
+
+.section {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 40px 20px;
+    color: white;
+}
+
+.section h1 {
+    font-size: 30px;
+    margin-bottom: 15px;
+}
+
+.section1 {
+    background-color: #1F2A1F ;
+}
+
