@@ -17,8 +17,8 @@
     <nav class="navbar">
         <div class="navbar-container">
             <div class="navbar-logo">
-                <img src="logo com nome PNG.png" alt="Rota Raiz" class="logo-icon">
-                <span>Rota<br>Raiz</span>
+                <img src="logo com nome PNG (2).png" alt="Rota Raiz" class="logo-icon">
+
             </div>
 
             <div class="navbar-search">
@@ -33,7 +33,15 @@
 
             <div class="navbar-menu">
                 <button class="menu-btn">+ Cadastro</button>
+                <button class="back-nav-btn" onclick="window.location.href='tcc.html'">Voltar</button>
+                <button class="options-btn" aria-label="Opções">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
             </div>
+
+        </div>
 
     </nav>
     <section class="subnav">
@@ -50,30 +58,157 @@
             </div>
         </div>
     </section>
-    <div class="content">
+    <div class="content"></div>
 
-        <button class="back-button" onclick="window.location.href='tcc.html'">Voltar</button>
-    </div>
-
-    <div class="container">
-
-        <div class="section section1">
-            <h1>Culinária de terreiro</h1>
-            <h2>Descrição (ex: “bem avaliado, mais curtidos”)</h2>
-            <button class="botão"> "S2"</button>
+    <section class="cards-section">
+        <div class="cards-header">
+            <div>
+                <span class="section-label">Explorar restaurantes</span>
+                <h2>Promoções e favoritos</h2>
+            </div>
+            <button class="filter-btn">
+                Filtrar
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+                    <path d="M10 18l6-6-6-6v12z" />
+                </svg>
+            </button>
         </div>
 
-        <div class="section section2">
-            <h1>fulô</h1>
-            <h2>mais curtidos</h2>
-            <button class="botão2">S2</button>
-        </div>
+        <div class="cards-grid">
+            <article class="card">
+                <div class="card-image-wrapper">
+                    <img src="Rota.webp" alt="Culinária de terreiro" class="card-image">
+                    <button class="favorite-btn" aria-label="Favorito">
+                        <svg viewBox="0 0 24 24" width="22" height="22" fill="#FF4D4D">
+                            <path
+                                d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+                        </svg>
+                    </button>
+                </div>
+                <div class="card-content">
+                    <h3>Culinária de terreiro</h3>
+                    <p>Descrição (ex: “bem avaliado, mais curtidos”).</p>
+                </div>
+            </article>
 
-        <div class="section section3">
-            <h1>Beira Mar</h1>
-            <h2>Comida baiana/h2>
-                <button class="botão3">S2</button>
+            <article class="card">
+                <div class="card-image-wrapper">
+                    <img src="Rota.webp" alt="Fulô" class="card-image">
+                    <button class="favorite-btn" aria-label="Favorito">
+                        <svg viewBox="0 0 24 24" width="22" height="22" fill="#FF4D4D">
+                            <path
+                                d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+                        </svg>
+                    </button>
+                </div>
+                <div class="card-content">
+                    <h3>Fulô</h3>
+                    <p>Mais curtidos.</p>
+                </div>
+            </article>
+
+            <article class="card">
+                <div class="card-image-wrapper">
+                    <img src="Rota.webp" alt="Beira Mar" class="card-image">
+                    <button class="favorite-btn" aria-label="Favorito">
+                        <svg viewBox="0 0 24 24" width="22" height="22" fill="#FF4D4D">
+                            <path
+                                d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+                        </svg>
+                    </button>
+                </div>
+                <div class="card-content">
+                    <h3>Beira Mar</h3>
+                    <p>Comida baiana bem avaliada.</p>
+                </div>
+            </article>
+
+            <article class="card">
+                <div class="card-image-wrapper">
+                    <img src="Rota.webp" alt="Sabores locais" class="card-image">
+                    <button class="favorite-btn" aria-label="Favorito">
+                        <svg viewBox="0 0 24 24" width="22" height="22" fill="#FF4D4D">
+                            <path
+                                d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+                        </svg>
+                    </button>
+                </div>
+                <div class="card-content">
+                    <h3>Sabores locais</h3>
+                    <p>Bem avaliado e com atendimento especial.</p>
+                </div>
+            </article>
+
+            <article class="card">
+                <div class="card-image-wrapper">
+                    <img src="Rota.webp" alt="Culinária de terreiro" class="card-image">
+                    <button class="favorite-btn" aria-label="Favorito">
+                        <svg viewBox="0 0 24 24" width="22" height="22" fill="#FF4D4D">
+                            <path
+                                d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+                        </svg>
+                    </button>
+                </div>
+                <div class="card-content">
+                    <h3>Sabores da massa</h3>
+                    <p>Especialidades locais e comida caseira.</p>
+                </div>
+            </article>
+
+            <article class="card">
+                <div class="card-image-wrapper">
+                    <img src="Rota.webp" alt="Varanda verde" class="card-image">
+                    <button class="favorite-btn" aria-label="Favorito">
+                        <svg viewBox="0 0 24 24" width="22" height="22" fill="#FF4D4D">
+                            <path
+                                d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+                        </svg>
+                    </button>
+                </div>
+                <div class="card-content">
+                    <h3>Varanda Verde</h3>
+                    <p>Ambiente tranquilo com pratos regionais.</p>
+                </div>
+            </article>
+
+            <article class="card">
+                <div class="card-image-wrapper">
+                    <img src="Rota.webp" alt="Sabores do mar" class="card-image">
+                    <button class="favorite-btn" aria-label="Favorito">
+                        <svg viewBox="0 0 24 24" width="22" height="22" fill="#FF4D4D">
+                            <path
+                                d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+                        </svg>
+                    </button>
+                </div>
+                <div class="card-content">
+                    <h3>Sabores do mar</h3>
+                    <p>Peixes e frutos do mar frescos e bem temperados.</p>
+                </div>
+            </article>
+
+            <article class="card">
+                <div class="card-image-wrapper">
+                    <img src="Rota.webp" alt="Cantinho do café" class="card-image">
+                    <button class="favorite-btn" aria-label="Favorito">
+                        <svg viewBox="0 0 24 24" width="22" height="22" fill="#FF4D4D">
+                            <path
+                                d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+                        </svg>
+                    </button>
+                </div>
+                <div class="card-content">
+                    <h3>Cantinho do café</h3>
+                    <p>Ótimo para cafés especiais e petiscos rápidos.</p>
+                </div>
+            </article>
         </div>
+        <button class="cards-next-btn" aria-label="Ver mais restaurantes">→</button>
+    </section>
+
+    <div class="footer-bar"></div>
+
+    <script src="proxima.js"></script>
 </body>
 
 </html>
