@@ -52,9 +52,9 @@ body {
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
-    border: 1px solid rgba(31, 42, 31, 0.18);
-    background: rgba(217, 210, 185, 0.75);
-    color: #1f2a1f;
+    background:  #2f3a25;           
+    color: #FAF0E6;
+    border: none;
     border-radius: 999px;
     padding: 0.85rem 1.25rem;
     cursor: pointer;
@@ -62,9 +62,9 @@ body {
     transition: transform 0.2s ease, background-color 0.2s ease;
 }
 
+
 .filter-btn:hover {
     transform: translateY(-1px);
-    background-color: rgba(217, 210, 185, 0.95);
 }
 
 .cards-grid {
@@ -445,7 +445,7 @@ p {
     background-color: #c5bea4;
 }
 
-/================== Restaurantes ==============================/
+/*================== Restaurantes ==============================*/
 .container {
     display: flex;
     flex-direction: row;
@@ -483,4 +483,185 @@ h1 {
 
 .section1 {
     background-color: #1F2A1F;
+}
+/* ====================== FILTROS SIDEBAR ====================== */
+.filter-sidebar {
+    position: fixed;
+    top: 0;
+    right: -420px;
+    width: 390px;
+    height: 100vh;
+    background: #2f3a25;
+    box-shadow: -12px 0 35px rgba(0, 0, 0, 0.4);
+    transition: right 0.45s cubic-bezier(0.32, 0.72, 0, 1);
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    color: #f1ecd9;
+    border-radius: 20px 0 0 20px;
+    overflow: hidden;
+}
+
+.filter-sidebar.open {
+    right: 0;
+}
+
+.filter-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(31, 42, 31, 0.75);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease;
+    z-index: 999;
+}
+
+.filter-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Cabeçalho */
+.filter-header {
+    padding: 1.6rem 1.6rem 1.2rem;
+    border-bottom: 1px solid rgba(250, 240, 230, 0.2);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.15);
+}
+
+.filter-header h3 {
+    margin: 0;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #FAF0E6;
+}
+
+.close-filter-btn {
+    background: rgba(250, 240, 230, 0.1);
+    border: none;
+    color: #FAF0E6;
+    font-size: 1.7rem;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.close-filter-btn:hover {
+    background: rgba(250, 240, 230, 0.25);
+    transform: rotate(90deg);
+}
+
+/* Corpo */
+.filter-body {
+    flex: 1;
+    padding: 1.8rem 1.6rem;
+    overflow-y: auto;
+}
+
+.filter-group {
+    margin-bottom: 2.2rem;
+}
+
+.filter-title {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: #FAF0E6;
+    font-size: 1.08rem;
+}
+
+/* Checkboxes */
+.checkbox-group label {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+    padding: 0.75rem 0;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.checkbox-group input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    accent-color: #FAF0E6;
+    cursor: pointer;
+}
+
+/* Range Slider */
+.price-range {
+    width: 100%;
+    accent-color: #FAF0E6;
+    height: 6px;
+    border-radius: 999px;
+}
+
+/* Select */
+.filter-select {
+    width: 100%;
+    padding: 0.85rem 1rem;
+    border-radius: 14px;
+    background: rgba(250, 240, 230, 0.08);
+    border: 1px solid rgba(250, 240, 230, 0.3);
+    color: #f1ecd9;
+    font-size: 1rem;
+}
+
+.filter-select:focus {
+    outline: none;
+    border-color: #FAF0E6;
+}
+
+/* Rodapé */
+.filter-footer {
+    padding: 1.6rem;
+    border-top: 1px solid rgba(250, 240, 230, 0.2);
+    display: flex;
+    gap: 1rem;
+    background: rgba(0, 0, 0, 0.15);
+}
+
+.clear-filter-btn {
+    flex: 1;
+    padding: 1rem;
+    background: transparent;
+    border: 2px solid #FAF0E6;
+    color: #FAF0E6;
+    border-radius: 999px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.clear-filter-btn:hover {
+    background: rgba(250, 240, 230, 0.1);
+}
+
+.apply-filter-btn {
+    flex: 1;
+    padding: 1rem;
+    background: #FAF0E6;
+    color: #1f2a1f;
+    border: none;
+    border-radius: 999px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.apply-filter-btn:hover {
+    background: #f5e6d0;
+    transform: translateY(-2px);
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+    .filter-sidebar {
+        width: 100%;
+        border-radius: 0;
+        right: -100%;
+    }
 }
