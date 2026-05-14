@@ -1,15 +1,13 @@
-
-
 body {
     font-family: 'Poppins', sans-serif;
     margin: 0;
     padding: 0;
     background-color: #1F2A1F;
-    background-image: url("Rota.webp");
-    background-position: center 0%;
+    background-image: url("orlaimage.png");
     background-repeat: no-repeat;
-    background-size: 100vw 65vh;
-    min-height: 100vh;
+    background-size: 100% auto; /* largura 100% e altura proporcional */
+    background-position: top center;
+    position: relative;
 }
 /* Ajusta a área do topo para o card aparecer mais acima na página */
 .hero {
@@ -84,9 +82,9 @@ body {
 
 .card-image img {
   width: 100%;
-  max-width: 600px;
+  height: auto;
   border-radius: 20px;
-  object-fit: cover;
+  object-fit: contain;
 }
 
 .card h3 {
