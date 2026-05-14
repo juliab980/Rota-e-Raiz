@@ -1,19 +1,16 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="proxima.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,
-        600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
     <title>Rota & Raiz</title>
 </head>
 
 <body>
-    <!-- Navbar -->
     <nav class="navbar">
         <div class="navbar-container">
             <div class="navbar-logo">
@@ -58,23 +55,21 @@
             </div>
         </div>
     </section>
-    <div class="content"></div>
-
     <section class="cards-section">
         <div class="cards-header">
             <div>
                 <span class="section-label">Explorar restaurantes</span>
                 <h2>Promoções e favoritos</h2>
             </div>
-            <button class="filter-btn">
+            <button class="filter-btn" id="openFilterBtn">
                 Filtrar
-                <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
-                    <path d="M10 18l6-6-6-6v12z" />
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+                    <path d="M6 10.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5m-2-3a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5m-2-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5"/>
                 </svg>
             </button>
         </div>
 
-        <div class="cards-grid">
+    <div class="cards-grid">
             <article class="card">
                 <div class="card-image-wrapper">
                     <img src="Rota.webp" alt="Culinária de terreiro" class="card-image">
@@ -205,10 +200,51 @@
         </div>
         <button class="cards-next-btn" aria-label="Ver mais restaurantes">→</button>
     </section>
+    <!-- ==================== PAINEL DE FILTROS ==================== -->
+    <div class="filter-sidebar" id="filterSidebar">
+        <div class="filter-header">
+            <h3>Filtros</h3>
+            <button class="close-filter-btn" id="closeFilterBtn">✕</button>
+        </div>
 
-    <div class="footer-bar"></div>
+        <div class="filter-body">
+
+            <div class="filter-group">
+                <label class="filter-title">Estabelecimentos</label>
+                <div class="checkbox-group">
+                    <label><input type="checkbox" checked> Bares</label>
+                    <label><input type="checkbox"> Restaurantes</label>
+                    <label><input type="checkbox"> Docerias</label>
+                    <label><input type="checkbox"> Lanches rápidos</label>
+                    <label><input type="checkbox"> Cafeterias</label>
+                </div>
+            </div>
+
+            <div class="filter-group">
+                <label class="filter-title">Preço</label>
+                <input type="range" min="1" max="4" value="4" class="price-range">
+            </div>
+
+            <div class="filter-group">
+                <label class="filter-title">Ambientes</label>
+                <div class="checkbox-group">
+                    <label><input type="checkbox" checked> Aberto</label>
+                    <label><input type="checkbox"> Fechado</label>
+                    <label><input type="checkbox"> Com música</label>
+                    <label><input type="checkbox"> Área kids</label>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="filter-footer">
+            <button class="clear-filter-btn" id="clearFilters">Limpar</button>
+            <button class="apply-filter-btn" id="applyFilters">Aplicar Filtros</button>
+        </div>
+    </div>
+
+    <div class="filter-overlay" id="filterOverlay"></div>
 
     <script src="proxima.js"></script>
 </body>
-
 </html>
