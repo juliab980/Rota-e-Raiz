@@ -349,6 +349,9 @@ body {
 }
 
 .menu-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     background-color: transparent;
     color: #D9D2B9;
     border: 2px solid #D9D2B9;
@@ -359,6 +362,7 @@ body {
     cursor: pointer;
     transition: all 0.3s ease;
     font-family: 'Poppins', sans-serif;
+    text-decoration: none;
 }
 
 .menu-btn:hover {
