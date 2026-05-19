@@ -45,7 +45,6 @@ clearBtn.addEventListener('click', () => {
 
 // ==================== APLICAR FILTROS ====================
 applyBtn.addEventListener('click', () => {
-    // Aqui você pode colocar a lógica de filtragem no futuro
-    alert("✅ Filtros aplicados com sucesso!");
     closeFilters();
+    
 });
