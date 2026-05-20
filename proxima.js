@@ -1,4 +1,4 @@
-// ====================== FILTROS ======================
+// Filtros
 const filterBtn = document.getElementById('openFilterBtn');
 const sidebar = document.getElementById('filterSidebar');
 const overlay = document.getElementById('filterOverlay');
@@ -26,7 +26,7 @@ document.addEventListener('keydown', (e) => {
     if (e.key === "Escape") closeFilters();
 });
 
-// ==================== LIMPAR FILTROS (CORRIGIDO) ====================
+// Limpar filtros
 clearBtn.addEventListener('click', () => {
     const checkboxes = sidebar.querySelectorAll('input[type="checkbox"]');
     
@@ -43,7 +43,7 @@ clearBtn.addEventListener('click', () => {
     if (select) select.value = '';
 });
 
-// ==================== APLICAR FILTROS ====================
+// Aplicar filtros
 applyBtn.addEventListener('click', () => {
     closeFilters();
     
