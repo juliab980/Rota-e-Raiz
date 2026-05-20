@@ -5,22 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
     <link rel="stylesheet" href="proxima.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
     <title>Rota & Raiz</title>
 </head>
 
 <body>
-    <nav class="navbar">
-        <div class="navbar-container">
-            <div class="navbar-logo">
+    <nav class="barra-navegacao">
+        <div class="container-barra">
+            <div class="logo-barra">
                 <img src="logo com nome PNG (2).png" alt="Rota Raiz" class="logo-icon">
 
             </div>
 
-            <div class="navbar-search">
-                <input type="text" placeholder="Qual restaurante hoje?" class="search-input">
-                <button class="search-btn">
+            <div class="busca-barra">
+                <input type="text" placeholder="Qual restaurante hoje?" class="entrada-busca">
+                <button class="botao-busca">
                     <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
                         <path
                             d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z" />
@@ -28,41 +29,38 @@
                 </button>
             </div>
 
-            <div class="navbar-menu">
-<a href="pessoa.html" class="menu-btn">
-    + Cadastro </a>
-                <button class="back-nav-btn" onclick="window.location.href='tcc.html'">Voltar</button>
-                <button class="options-btn" aria-label="Opções">
-                    <span></span>
-                    <span></span>
-                    <span></span>
+            <div class="menu-barra">
+                <button class="botao-menu" onclick="window.location.href='login.html'">+ Cadastro</button>
+                <button class="botao-voltar-nav" onclick="window.location.href='tcc.html'">Voltar</button>
+                <button class="botao-opcoes" id="botao-abrir-lista" aria-label="Opções">
+                    <i class="bi bi-list"></i>
                 </button>
             </div>
 
         </div>
 
     </nav>
-    <section class="subnav">
-        <div class="subnav-container">
-            <div class="subnav-title">Localidades</div>
-            <div class="subnav-options">
-                <label><input type="checkbox" checked> Guarajuba</label>
-                <label><input type="checkbox"> Bairro Novo</label>
-                <label><input type="checkbox" checked> Centro</label>
-                <label><input type="checkbox"> Arembepe</label>
-                <label><input type="checkbox" checked> Inocoop</label>
-                <label><input type="checkbox"> Jauá</label>
-                <label><input type="checkbox" checked> Gleba B</label>
+    <section class="subnavegacao">
+        <div class="container-subnavegacao">
+            <div class="titulo-subnavegacao">Localidades</div>
+            <div class="opcoes-subnavegacao">
+                <label><input type="checkbox" checked>Camaçari</label>
+                <label><input type="checkbox">Orla Camaçari</label>
+                <label><input type="checkbox" checked>Salvador</label>
+                <label><input type="checkbox">Orla Salvador</label>
+                <label><input type="checkbox" checked>Lauro de Freitas</label>
+                <label><input type="checkbox">Outros Lugares</label>
+             
             </div>
         </div>
     </section>
-    <section class="cards-section">
-        <div class="cards-header">
+    <section class="secao-cartoes">
+        <div class="cabecalho-cartoes">
             <div>
-                <span class="section-label">Explorar restaurantes</span>
+                <span class="etiqueta-secao">Explorar restaurantes</span>
                 <h2>Promoções e favoritos</h2>
             </div>
-            <button class="filter-btn" id="openFilterBtn">
+            <button class="botao-filtro" id="botao-abrir-filtro">
                 Filtrar
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
                     <path d="M6 10.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5m-2-3a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5m-2-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5"/>
@@ -70,149 +68,151 @@
             </button>
         </div>
 
-    <div class="cards-grid">
+    <div class="grade-cartoes">
             <article class="card">
-                <div class="card-image-wrapper">
-                    <img src="Rota.webp" alt="Culinária de terreiro" class="card-image">
-                    <button class="favorite-btn" aria-label="Favorito">
+                <div class="quadro-imagem-cartao">
+                    <img src="CULINARIA_DE_TERREIRO-1-1.webp" alt="Culinária de terreiro" class="imagem-cartao">
+                    <button class="botao-favorito" aria-label="Favorito">
                         <svg viewBox="0 0 24 24" width="22" height="22" fill="#FF4D4D">
                             <path
                                 d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
                         </svg>
                     </button>
                 </div>
-                <div class="card-content">
+                <div class="conteudo-cartao">
                     <h3>Culinária de terreiro</h3>
-                    <p>Descrição (ex: “bem avaliado, mais curtidos”).</p>
+                    <p>Restaurante voltado à tradição afro-baiana, inspirado nas comidas de terreiro do candomblé, com pratos cheios de história, ancestralidade e sabores típicos da Bahia.</p>
                 </div>
             </article>
 
             <article class="card">
-                <div class="card-image-wrapper">
-                    <img src="Rota.webp" alt="Fulô" class="card-image">
-                    <button class="favorite-btn" aria-label="Favorito">
+                <div class="quadro-imagem-cartao">
+                    <img src="fulo-foto.webp" alt="Fulô" class="imagem-cartao">
+                    <button class="botao-favorito" aria-label="Favorito">
                         <svg viewBox="0 0 24 24" width="22" height="22" fill="#FF4D4D">
                             <path
                                 d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
                         </svg>
                     </button>
                 </div>
-                <div class="card-content">
+                <div class="conteudo-cartao">
                     <h3>Fulô</h3>
-                    <p>Mais curtidos.</p>
+                    <p>Restaurante com ambiente acolhedor e proposta regional contemporânea, valorizando ingredientes nordestinos e a cultura baiana em pratos criativos.</p>
                 </div>
             </article>
 
             <article class="card">
-                <div class="card-image-wrapper">
-                    <img src="Rota.webp" alt="Beira Mar" class="card-image">
-                    <button class="favorite-btn" aria-label="Favorito">
+                <div class="quadro-imagem-cartao">
+                    <img src="Beira.jpg" alt="Beira Mar" class="imagem-cartao">
+                    <button class="botao-favorito" aria-label="Favorito">
                         <svg viewBox="0 0 24 24" width="22" height="22" fill="#FF4D4D">
                             <path
                                 d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
                         </svg>
                     </button>
                 </div>
-                <div class="card-content">
+                <div class="conteudo-cartao">
                     <h3>Beira Mar</h3>
-                    <p>Comida baiana bem avaliada.</p>
+                    <p>Restaurante tradicional da Bahia, com alimentos ligados a frutos do mar, moquecas e clima praiano “pé na areia.”</p>
                 </div>
             </article>
 
             <article class="card">
-                <div class="card-image-wrapper">
-                    <img src="Rota.webp" alt="Sabores locais" class="card-image">
-                    <button class="favorite-btn" aria-label="Favorito">
+                <div class="quadro-imagem-cartao">
+                    <img src="sabores.jpg" alt="Sabores locais" class="imagem-cartao">
+                    <button class="botao-favorito" aria-label="Favorito">
                         <svg viewBox="0 0 24 24" width="22" height="22" fill="#FF4D4D">
                             <path
                                 d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
                         </svg>
                     </button>
                 </div>
-                <div class="card-content">
+                <div class="conteudo-cartao">
                     <h3>Sabores locais</h3>
-                    <p>Bem avaliado e com atendimento especial.</p>
+                    <p>Conceito gastronômico focado na culinária regional baiana, destacando temperos típicos, receitas tradicionais e ingredientes locais.</p>
                 </div>
             </article>
 
             <article class="card">
-                <div class="card-image-wrapper">
-                    <img src="Rota.webp" alt="Culinária de terreiro" class="card-image">
-                    <button class="favorite-btn" aria-label="Favorito">
+                <div class="quadro-imagem-cartao">
+                    <img src="mariquita.jpg" alt="Dona Mariquita" class="imagem-cartao">
+                    <button class="botao-favorito" aria-label="Favorito">
                         <svg viewBox="0 0 24 24" width="22" height="22" fill="#FF4D4D">
                             <path
                                 d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
                         </svg>
                     </button>
                 </div>
-                <div class="card-content">
-                    <h3>Sabores da massa</h3>
-                    <p>Especialidades locais e comida caseira.</p>
+                <div class="conteudo-cartao">
+                    <h3>Dona Mariquita</h3>
+                    <p>Um dos restaurantes culturais mais famosos de Salvador, reconhecido por preservar receitas afro-baianas e pratos históricos do Recôncavo.</p>
                 </div>
             </article>
 
             <article class="card">
-                <div class="card-image-wrapper">
-                    <img src="Rota.webp" alt="Varanda verde" class="card-image">
-                    <button class="favorite-btn" aria-label="Favorito">
+                <div class="quadro-imagem-cartao">
+                    <img src="pa.tropical.jpg" alt="Paraíso Tropical" class="imagem-cartao">
+                    <button class="botao-favorito" aria-label="Favorito">
                         <svg viewBox="0 0 24 24" width="22" height="22" fill="#FF4D4D">
                             <path
                                 d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
                         </svg>
                     </button>
                 </div>
-                <div class="card-content">
-                    <h3>Varanda Verde</h3>
-                    <p>Ambiente tranquilo com pratos regionais.</p>
+                <div class="conteudo-cartao">
+                    <h3>Paraíso Tropical</h3>
+                    <p>Restaurante icônico que mistura culinária baiana contemporânea com ingredientes exóticos brasileiros e forte identidade cultural.</p>
                 </div>
             </article>
 
             <article class="card">
-                <div class="card-image-wrapper">
-                    <img src="Rota.webp" alt="Sabores do mar" class="card-image">
-                    <button class="favorite-btn" aria-label="Favorito">
+                <div class="quadro-imagem-cartao">
+                    <img src="ki.jpg" alt="Ki-Mukeka" class="imagem-cartao">
+                    <button class="botao-favorito" aria-label="Favorito">
                         <svg viewBox="0 0 24 24" width="22" height="22" fill="#FF4D4D">
                             <path
                                 d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
                         </svg>
                     </button>
                 </div>
-                <div class="card-content">
-                    <h3>Sabores do mar</h3>
-                    <p>Peixes e frutos do mar frescos e bem temperados.</p>
+                <div class="conteudo-cartao">
+                    <h3>Ki-Mukeka</h3>
+                    <p>Referência em moquecas e frutos do mar em Salvador, famoso pelo sabor marcante e pela experiência típica baiana.</p>
                 </div>
             </article>
 
             <article class="card">
-                <div class="card-image-wrapper">
-                    <img src="Rota.webp" alt="Cantinho do café" class="card-image">
-                    <button class="favorite-btn" aria-label="Favorito">
+                <div class="quadro-imagem-cartao">
+                    <img src="café.jpg" alt="Mocotó Café" class="imagem-cartao">
+                    <button class="botao-favorito" aria-label="Favorito">
                         <svg viewBox="0 0 24 24" width="22" height="22" fill="#FF4D4D">
                             <path
                                 d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
                         </svg>
                     </button>
                 </div>
-                <div class="card-content">
-                    <h3>Cantinho do café</h3>
-                    <p>Ótimo para cafés especiais e petiscos rápidos.</p>
+                <div class="conteudo-cartao">
+                    <h3>Mocotó Café</h3>
+                    <p>Restaurante/café da Chapada Diamantina que une culinária regional, ambiente artístico e elementos da cultura sertaneja baiana.</p>
                 </div>
             </article>
         </div>
-        <button class="cards-next-btn" aria-label="Ver mais restaurantes">→</button>
+        <!-- Botões de navegação do carrossel de cards -->
+        <button class="botao-anterior-cartoes" aria-label="Voltar restaurantes">←</button>
+        <button class="botao-proximo-cartoes" aria-label="Ver mais restaurantes">→</button>
     </section>
     <!-- ==================== PAINEL DE FILTROS ==================== -->
-    <div class="filter-sidebar" id="filterSidebar">
-        <div class="filter-header">
+    <div class="barra-filtro" id="barra-filtro">
+        <div class="cabecalho-filtro">
             <h3>Filtros</h3>
-            <button class="close-filter-btn" id="closeFilterBtn">✕</button>
+            <button class="botao-fechar-filtro" id="botao-fechar-filtro">✕</button>
         </div>
 
-        <div class="filter-body">
+        <div class="corpo-filtro">
 
-            <div class="filter-group">
-                <label class="filter-title">Estabelecimentos</label>
-                <div class="checkbox-group">
+            <div class="grupo-filtro">
+                <label class="titulo-filtro">Estabelecimentos</label>
+                <div class="grupo-checkbox">
                     <label><input type="checkbox" checked> Bares</label>
                     <label><input type="checkbox"> Restaurantes</label>
                     <label><input type="checkbox"> Docerias</label>
@@ -221,14 +221,14 @@
                 </div>
             </div>
 
-            <div class="filter-group">
-                <label class="filter-title">Preço</label>
-                <input type="range" min="1" max="4" value="4" class="price-range">
+            <div class="grupo-filtro">
+                <label class="titulo-filtro">Preço</label>
+                <input type="range" min="1" max="4" value="4" class="faixa-preco">
             </div>
 
-            <div class="filter-group">
-                <label class="filter-title">Ambientes</label>
-                <div class="checkbox-group">
+            <div class="grupo-filtro">
+                <label class="titulo-filtro">Ambientes</label>
+                <div class="grupo-checkbox">
                     <label><input type="checkbox" checked> Aberto</label>
                     <label><input type="checkbox"> Fechado</label>
                     <label><input type="checkbox"> Com música</label>
@@ -238,14 +238,33 @@
 
         </div>
 
-        <div class="filter-footer">
-            <button class="clear-filter-btn" id="clearFilters">Limpar</button>
-            <button class="apply-filter-btn" id="applyFilters">Aplicar Filtros</button>
+        <div class="rodape-filtro">
+            <button class="botao-limpar-filtro" id="botao-limpar-filtro">Limpar</button>
+            <button class="botao-aplicar-filtro" id="botao-aplicar-filtro">Aplicar Filtros</button>
         </div>
     </div>
 
-    <div class="filter-overlay" id="filterOverlay"></div>
+    <div class="barra-filtro" id="barra-lista">
+        <div class="cabecalho-filtro">
+            <h3>Lista</h3>
+            <button class="botao-fechar-filtro" id="botao-fechar-lista">✕</button>
+        </div>
+
+        <div class="corpo-filtro">
+            <div class="grupo-filtro">
+                <label class="titulo-filtro">Ações rápidas</label>
+                <div class="lista-menu">
+                    <button type="button" class="item-lista" onclick="window.location.href='perfil.html'">Sua conta</button>
+                    <button type="button" class="item-lista">Histórico de restaurantes</button>
+                    <button type="button" class="item-lista" onclick="window.location.href='configuracoes.html'">Configurações</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="sobreposicao-filtro" id="sobreposicao-filtro"></div>
 
     <script src="proxima.js"></script>
 </body>
 </html>
+
