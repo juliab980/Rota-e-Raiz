@@ -31,7 +31,7 @@ clearBtn.addEventListener('click', () => {
     const checkboxes = sidebar.querySelectorAll('input[type="checkbox"]');
     
     checkboxes.forEach(chk => {
-        chk.checked = false;        // Agora desmarca todos
+        chk.checked = false;        //esmarca todos
     });
 
     // Reseta o range de preço
