@@ -3,7 +3,7 @@ body {
     margin: 0;
     padding: 0;
     background-color: #1F2A1F;
-    background-image: url("orlaimage.png");
+    background-image: url("Rota.webp");
     background-repeat: no-repeat;
     background-size: 100% auto; /* largura 100% e altura proporcional */
     background-position: top center;
@@ -26,7 +26,7 @@ body {
     border: 2px solid #1F2A1F;
     border-radius: 22px;
     font-size: 1.25rem;
-    font-weight: 800;
+    font-weight: 450;
     cursor: pointer;
   transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
     z-index: 1;
@@ -50,8 +50,8 @@ body {
 
 .card {
   /* Largura maior para ocupar mais os lados da tela */
-  width: min(96vw, 1600px);
-  max-width: 1600px;
+  width: min(85vw, 1200px);
+  max-width: 1200px;
   margin: -6rem auto 4rem;
   padding: 3.5rem 3.5rem 3rem;
   background-color: #D9D2B9;
@@ -90,13 +90,13 @@ body {
 .card h3 {
   margin-top: 0;
   font-size: clamp(2rem, 3vw, 3rem);
-  font-weight: 700;
+  font-weight: 450;
   text-align: left;
 }
 
 .card p {
   line-height: 1.8;
-  font-size: 1.5rem;
+  font-size: 1 rem;
   margin: 1.2rem 0 0;
   text-align: left;
 }
