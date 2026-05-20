@@ -22,18 +22,17 @@ body {
     background-color: #3d5a47;
     padding: 20px 30px;
     display: flex;
-    justify-content: space-between;
     align-items: center;
     border-radius: 0 0 20px 20px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-    gap: 20px;
+    position: relative;
 }
 
 .titulo-header {
     font-size: 24px;
     font-weight: 700;
     color: #fff;
-    min-width: 150px;
+    z-index: 2;
 }
 
 .search-container {
@@ -42,9 +41,12 @@ body {
     background-color: #fff;
     border-radius: 25px;
     padding: 10px 20px;
-    flex: 1;
-    max-width: 400px;
+    width: 400px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    width:20%
 }
 
 .search-input {
@@ -95,11 +97,13 @@ body {
 
 .botao-menu-config i {
     font-size: 16px;
+
 }
 
 .card-config i {
     font-size: 24px;
     color: #3d5a47;
+    margin-left: auto;
 }
 
 /* CONTEÚDO PRINCIPAL */
@@ -124,7 +128,7 @@ body {
     border: none;
     padding: 12px 20px;
     border-radius: 20px;
-    font-size: 14px;
+    font-size: 20px;
     font-weight: 600;
     cursor: pointer;
     font-family: 'Poppins', sans-serif;
@@ -133,6 +137,8 @@ body {
     gap: 10px;
     transition: all 0.3s ease;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    width: 200%;
+    height: 60px;
 }
 
 .botao-menu-config:hover {
