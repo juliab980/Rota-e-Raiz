@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Link para adicionar SVG dos ícones aqui se necessário -->
+    <link rel="stylesheet" href="configuracoes.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <title>Configurações - Rota & Raiz</title>
+</head>
+
+<body>
+    <div class="container-principal">
+        <!-- Header -->
+        <header class="header-configuracoes">
+            <div class="titulo-header">Configurações</div>
+            <div class="search-container">
+                <input type="text" placeholder="Busca de Configurações" class="search-input">
+                <button class="botao-search">
+                    <span class="icone-slot search-slot"></span>
+                </button>
+            </div>
+        </header>
+
+        <div class="conteudo-configuracoes">
+            <!-- Menu Esquerdo -->
+            <aside class="menu-esquerdo">
+                <button class="botao-menu-config">
+                    <span class="icone-slot"> <img src="acessibilidade.svg" alt="Acessibilidade"></span>
+                    Acessibilidade
+                </button>
+                <button class="botao-menu-config">
+                    <span class="icone-slot"> <img src="notificação.svg" alt="Notificações"></span>
+                    Notificações
+                </button>
+                <button class="botao-menu-config">
+                    <span class="icone-slot"> <img src="cultura.svg" alt="Cultura"></span>
+                    Cultura
+                </button>
+                <button class="botao-menu-config">
+                    <span class="icone-slot"> <img src="sair.svg" alt="Sair"></span>
+                    Sair
+                </button>
+                <button class="botao-menu-config" onclick="window.location.href='proxima.html'">
+                    <span class="icone-slot"> <img src="voltar.svg" alt="Voltar"></span>
+                    Voltar
+                </button>
+            </aside>
+
+            <!-- Conteúdo Principal -->
+            <main class="area-configuracoes">
+                <div class="card-config">
+                    <div class="card-header">
+                        <h3 class="card-titulo">Acesso a Localização</h3>
+                        <span class="icone-slot"> <img src="loc.svg" alt="Localização"></span>
+                    </div>
+                </div>
+
+                <div class="card-config">
+                    <div class="card-header">
+                        <h3 class="card-titulo">Privacidade e Segurança</h3>
+                        <span class="icone-slot"> <img src="cadeado.svg" alt="Segurança"></span>
+                    </div>
+                </div>
+
+                <div class="card-config">
+                    <div class="card-header">
+                        <h3 class="card-titulo">Recursos Adicionais</h3>
+                        <span class="icone-slot"> <img src="mais.svg" alt="Mais opções"></span>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <script src="configuracoes.js"></script>
+</body>
+</html>
