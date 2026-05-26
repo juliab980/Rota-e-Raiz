@@ -41,12 +41,11 @@ body {
     background-color: #fff;
     border-radius: 25px;
     padding: 10px 20px;
-    width: 400px;
+    width: 20%;
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    width:20%
 }
 
 .search-input {
@@ -112,6 +111,7 @@ body {
     flex: 1;
     gap: 30px;
     padding: 40px 30px;
+    align-items: flex-start; /* garante alinhamento ao topo */
 }
 
 /* MENU ESQUERDO */
@@ -120,6 +120,8 @@ body {
     flex-direction: column;
     gap: 15px;
     min-width: 200px;
+    flex: 0 0 240px; 
+    align-self: flex-start;
 }
 
 .botao-menu-config {
@@ -137,7 +139,7 @@ body {
     gap: 10px;
     transition: all 0.3s ease;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
-    width: 200%;
+    width: 100%;
     height: 60px;
 }
 
@@ -158,6 +160,9 @@ body {
     gap: 20px;
     flex: 1;
     max-width: 600px;
+    align-items: stretch;
+    justify-content: center;
+    margin-left: auto; 
 }
 
 .card-config {
@@ -198,14 +203,23 @@ body {
         gap: 20px;
     }
 
+    /* anula o margin-left em telas pequenas para empilhar corretamente */
+    .area-configuracoes {
+        margin-left: 0;
+        max-width: none;
+    }
+
     .header-configuracoes {
-        flex-direction: column;
+        flex-direction: row;
+        justify-content: space-between;
         gap: 15px;
     }
 
     .search-container {
         width: 100%;
         max-width: none;
+        position: static;
+        transform: none;
     }
 
     .area-configuracoes {
