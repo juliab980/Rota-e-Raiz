@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet"/>
+  <link rel="stylesheet" href="pessoa.css" />
+
+  <title>Cadastro de usuário</title>
+</head>
+
+<body>
+
+  <section class="container">
+    <div class="left-side">
+      <button class="botao-voltar-cadastro" onclick="window.location.href='login.html'">← Voltar</button>
+
+      <div class="titulo">
+        <h1>Cadastro de usuário</h1>
+        <span>Cadastre seus dados em nosso site</span>
+      </div>
+
+      <form class="formulario" id="registerForm">
+
+        <div class="campo">
+          <label>Nome de usuário</label>
+
+          <input
+            type="text"
+            id="regUsername"
+            placeholder="Coloque seu nome aqui!"
+          />
+        </div>
+
+        <div class="campo">
+          <label>Email</label>
+          <input
+            type="email"
+            id="regEmail"
+            placeholder="Ex: seuemail@gmail.com"
+          />
+        </div>
+
+        <div class="campo">
+          <label>Crie uma senha</label>
+          <input
+            type="password"
+            id="regSenha"
+            placeholder="Senha..."
+          />
+        </div>
+
+        <button type="submit" class="botao" id="finalizarBtn">
+          Pronto!
+        </button>
+
+        <p id="formMessage"></p>
+
+        <div class="links">
+          <a href="login.html">Já tem uma conta? faça login aqui</a>
+
+          <a href="estabelecimento.html">
+            Cadastre seu restaurante
+          </a>
+        </div>
+
+      </form>
+
+    </div>
+
+    </div>
+  </section>
+
+</body>
+</html>

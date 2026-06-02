@@ -1,0 +1,142 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background:
+    linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)),
+    url("pessoa.webp");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 30px;
+}
+
+/* CARD */
+.container {
+  width: 100%;
+  max-width: 500px;
+  background: rgba(42, 58, 27, 0.88);
+  border-radius: 45px;
+  padding: 40px 50px;
+  backdrop-filter: blur(4px);
+}
+
+/* TÍTULO */
+.titulo {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.titulo h1 {
+  color: #f5f1dc;
+  font-size: 2.3rem;
+  font-weight: 500;
+}
+
+.titulo span {
+  color: #f5f1dc;
+  font-size: 0.95rem;
+  font-weight: 300;
+}
+
+/* CAMPOS */
+.formulario {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.campo {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.campo label {
+  color: #f6f1d5;
+  font-size: 1rem;
+}
+
+.campo input {
+  width: 100%;
+  border: none;
+  outline: none;
+  background-color: #a1933f;
+  color: #fff;
+  padding: 15px 18px;
+  border-radius: 16px;
+  font-size: 1rem;
+  font-family: 'Poppins', sans-serif;
+}
+
+input::placeholder {
+  color: #e5ddb0;
+}
+
+/* BOTÃO */
+.botao {
+  margin: 10px auto 0;
+  padding: 12px 50px;
+  border-radius: 18px;
+  border: 1px solid #9d8d33;
+  background: #243512;
+  color: #fff;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: 0.3s;
+  display: block;
+  height: 55px;
+}
+
+
+.botao:hover {
+  background: #324b18;
+  transform: scale(1.03);
+}
+
+/* BOTÃO VOLTAR */
+.botao-voltar-cadastro {
+  margin-bottom: 25px;
+  padding: 10px 18px;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  background: rgba(255, 255, 255, 0.12);
+  color: #f5f1dc;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.25s ease, transform 0.25s ease;
+}
+
+.botao-voltar-cadastro:hover {
+  background: rgba(255, 255, 255, 0.18);
+  transform: translateY(-1px);
+}
+
+/* LINKS */
+.links {
+  margin-top: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  text-align: center;
+}
+
+.links a {
+  color: #f5f1dc;
+  font-size: 0.9rem;
+  text-decoration: underline;
+}
+
+#formMessage {
+  text-align: center;
+  color: #d8ffb0;
+  margin-top: 5px;
+}
