@@ -20,7 +20,7 @@ body {
 }
 
 .hero-button {
-    padding: 14px 28px;
+    padding: 17px 28px;
     background-color: #364027;
     color: #D9D2B9;
     border: 2px solid #1F2A1F;
@@ -28,8 +28,9 @@ body {
     font-size: 1.25rem;
     font-weight: 450;
     cursor: pointer;
-  transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+    transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
     z-index: 1;
+    position: flex-end;
 
 }
 
@@ -96,7 +97,7 @@ body {
 
 .card p {
   line-height: 1.8;
-  font-size: 1 rem;
+  font-size: 20px;
   margin: 1.2rem 0 0;
   text-align: left;
 }
