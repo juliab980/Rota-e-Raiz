@@ -101,3 +101,37 @@ body {
   margin: 1.2rem 0 0;
   text-align: left;
 }
+    .footer-container {
+        display: flex;
+        justify-content: space-between;
+        padding: 20px;
+        background-color: #171f17;
+        color: #fff;
+    }
+h3 {
+    font-size: 15px;
+    text-align: left;
+} 
+p { 
+    font-size: 13px;
+}
+a {
+    font-size: 13px;
+}
+    .footer-section {
+        flex: 1;
+        margin: 0 10px;
+    }
+    
+    .social-icons a {
+        color: #fff;
+        margin-right: 10px;
+        text-decoration: none;
+    }
+    
+    .footer-bottom {
+        text-align: center;
+        padding: 10px;
+        background-color: #000000;
+        color: #fff;
+    }
