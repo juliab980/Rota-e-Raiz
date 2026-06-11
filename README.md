@@ -7,9 +7,13 @@ experiência digital informativa e intuitiva, contribuindo para a preservação 
 Tecnologias utilizadas nesse projeto:
 
 HTML
+
 CSS
+
 JAVASCRIPT
+
 VISUAL STUDIO CODE
+
 
 Nosso projeto:
 
