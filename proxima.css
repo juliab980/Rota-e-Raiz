@@ -198,13 +198,23 @@ body {
 
 /* ======== SEÇÃO DE CARTÕES ======== */
 .secao-cartoes {
+    width: 100%;
     max-width: 1400px;
     margin: 2rem auto 4rem;
     padding: 0 1rem;
     display: flex;
     flex-direction: column;
+    align-items: center;
     gap: 1.5rem;
     position: relative;
+}
+.cabecalho-cartoes {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    color: #1f2a1f;
 }
 .cabecalho-cartoes {
     display: flex;
@@ -258,6 +268,55 @@ body {
 }
 
 /* ==================== CARTÕES ==================== */
+.fileira-destaque {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    overflow-x: auto;
+    overflow-y: visible;
+    padding-bottom: 0.5rem;
+}
+.fileira-destaque .card {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    min-width: 640px;
+    flex: 0 0 640px;
+    min-height: 320px;
+    border-radius: 30px;
+    overflow: hidden;
+}
+.fileira-destaque .quadro-imagem-cartao {
+    width: 48%;
+    flex: 0 0 48%;
+    height: 100%;
+    min-height: 320px;
+}
+.fileira-destaque .imagem-cartao {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+.fileira-destaque .conteudo-cartao {
+    width: 52%;
+    padding: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.fileira-destaque .conteudo-cartao h3 {
+    font-size: 1.45rem;
+    line-height: 1.2;
+    margin-bottom: 0.75rem;
+}
+.fileira-destaque .conteudo-cartao p {
+    font-size: 0.98rem;
+    line-height: 1.25;
+}
+
 .card {
     position: relative;
     display: flex;
@@ -274,6 +333,10 @@ body {
     box-shadow: none;
     transition: transform 0.25s ease;
 }
+.card-extra.oculto {
+    display: none;
+}
+
 .card:hover {
     transform: translateY(-0.15rem);
 }
@@ -334,9 +397,9 @@ body {
 .conteudo-cartao p {
     margin: 0;
     color: rgba(241, 236, 217, 0.9);
-    font-size: 0.98rem;
-    line-height: 1.4;
-    min-height: 2.8rem;
+    font-size: 0.92rem;
+    line-height: 1.2;
+    min-height: 2.4rem;
 }
 
 /* Botões de navegação */
