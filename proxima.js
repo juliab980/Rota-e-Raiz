@@ -1,298 +1,106 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="proxima.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <title>Rota & Raiz</title>
-</head>
+// ====================== FILTROS ======================
+const botaoAbrirFiltro = document.getElementById('botao-abrir-filtro');
+const barraFiltro = document.getElementById('barra-filtro');
+const botaoAbrirLista = document.getElementById('botao-abrir-lista');
+const barraLista = document.getElementById('barra-lista');
+const sobreposicaoFiltro = document.getElementById('sobreposicao-filtro');
+const botaoFecharFiltro = document.getElementById('botao-fechar-filtro');
+const botaoFecharLista = document.getElementById('botao-fechar-lista');
+const botaoLimparFiltro = document.getElementById('botao-limpar-filtro');
+const botaoAplicarFiltro = document.getElementById('botao-aplicar-filtro');
 
-<body>
-    <nav class="barra-navegacao">
-        <div class="container-barra">
-            <div class="logo-barra">
-                <img src="logo com nome PNG (2).png" alt="Rota Raiz" class="logo-icon">
+function closePanels() {
+    barraFiltro.classList.remove('open');
+    barraLista.classList.remove('open');
+    sobreposicaoFiltro.classList.remove('active');
+}
 
-            </div>
+// Abrir filtros
+botaoAbrirFiltro.addEventListener('click', () => {
+    closePanels();
+    barraFiltro.classList.add('open');
+    sobreposicaoFiltro.classList.add('active');
+});
 
-            <div class="busca-barra">
-                <input type="text" placeholder="Qual restaurante hoje?" class="entrada-busca">
-                <button class="botao-busca">
-                    <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
-                        <path
-                            d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z" />
-                    </svg>
-                </button>
-            </div>
+// Abrir lista
+botaoAbrirLista.addEventListener('click', () => {
+    closePanels();
+    barraLista.classList.add('open');
+    sobreposicaoFiltro.classList.add('active');
+});
 
-            <div class="menu-barra">
-                <button class="botao-menu" onclick="window.location.href='login.html'">+ Cadastro</button>
-                <button class="botao-voltar-nav" onclick="window.location.href='tcc.html'">Voltar</button>
-                <button class="botao-opcoes" id="botao-abrir-lista" aria-label="Opções">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
-<path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5"/>
-</svg>
-                </button>
-            </div>
+botaoFecharFiltro.addEventListener('click', closePanels);
+botaoFecharLista.addEventListener('click', closePanels);
+sobreposicaoFiltro.addEventListener('click', closePanels);
 
-        </div>
+// Fechar com ESC
+document.addEventListener('keydown', (e) => {
+    if (e.key === "Escape") closePanels();
+});
 
-    </nav>
-    <section class="subnavegacao">
-        <div class="container-subnavegacao">
-            <div class="titulo-subnavegacao">Localidades</div>
-            <div class="opcoes-subnavegacao">
-                <label><input type="checkbox" checked>Centro</label>
-                <label><input type="checkbox">Inocoop</label>
-                <label><input type="checkbox" checked>Bairro dos 46</label>
-                <label><input type="checkbox">Bomba</label>
-                <label><input type="checkbox" checked>Limoeiro</label>
-                <label><input type="checkbox">Outros</label>
-            </div>
-        </div>
-    </section>
-    <section class="secao-cartoes">
-        <div class="cabecalho-cartoes">
-            <div>
-                <span class="etiqueta-secao">Restaurantes destacados</span>
-                <h2>Restaurantes destacados</h2>
-            </div>
-        </div>
+// ==================== LIMPAR FILTROS (CORRIGIDO) ====================
+botaoLimparFiltro.addEventListener('click', () => {
+    const checkboxes = barraFiltro.querySelectorAll('input[type="checkbox"]');
+    
+    checkboxes.forEach(chk => {
+        chk.checked = false;        // Agora desmarca todos
+    });
 
-        <div class="grade-cartoes fileira-destaque">
-            <article class="card">
-                <div class="quadro-imagem-cartao">
-                    <img src="CULINARIA_DE_TERREIRO-1-1.webp" alt="Culinária de terreiro" class="imagem-cartao">
-                    <button class="botao-favorito" aria-label="Favorito">
-                        <svg viewBox="0 0 24 24" width="22" height="22" fill="#FF4D4D">
-                            <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
-                        </svg>
-                    </button>
-                </div>
-                <div class="conteudo-cartao">
-                    <h3>Culinária de terreiro</h3>
-                    <p>Pratos afro-baianos com tradição, sabor marcante e forte identidade cultural.</p>
-                </div>
-            </article>
-        </div>
-    </section>
+    // Reseta o range de preço
+    const precoRange = barraFiltro.querySelector('.faixa-preco');
+    if (precoRange) precoRange.value = 4;
 
-    <section class="secao-cartoes">
-        <div class="cabecalho-cartoes">
-            <div>
-                <span class="etiqueta-secao">Explorar restaurantes</span>
-                <h2>Promoções e favoritos</h2>
-            </div>
-            <button class="botao-filtro" id="botao-abrir-filtro">
-                Filtrar
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
-                    <path d="M6 10.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5m-2-3a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5m-2-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5"/>
-                </svg>
-            </button>
-        </div>
+    // Reseta o seletor de filtro (se existir)
+    const seletor = barraFiltro.querySelector('.seletor-filtro');
+    if (seletor) seletor.value = '';
+});
 
-    <div class="grade-cartoes">
-            <article class="card">
-                <div class="quadro-imagem-cartao">
-                    <img src="CULINARIA_DE_TERREIRO-1-1.webp" alt="Culinária de terreiro" class="imagem-cartao">
-                    <button class="botao-favorito" aria-label="Favorito">
-                        <svg viewBox="0 0 24 24" width="22" height="22" fill="#FF4D4D">
-                            <path
-                                d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
-                        </svg>
-                    </button>
-                </div>
-                <div class="conteudo-cartao">
-                    <h3>Culinária de terreiro</h3>
-                    <p>Restaurante voltado à tradição afro-baiana, inspirado nas comidas de terreiro do candomblé, com pratos cheios de história, ancestralidade e sabores típicos da Bahia.</p>
-                </div>
-            </article>
+// ==================== APLICAR FILTROS ====================
+botaoAplicarFiltro.addEventListener('click', () => {
+    // Aqui você pode colocar a lógica de filtragem no futuro
+    closePanels();
+});
 
-            <article class="card">
-                <div class="quadro-imagem-cartao">
-                    <img src="fulo-foto.webp" alt="Fulô" class="imagem-cartao">
-                    <button class="botao-favorito" aria-label="Favorito">
-                        <svg viewBox="0 0 24 24" width="22" height="22" fill="#FF4D4D">
-                            <path
-                                d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
-                        </svg>
-                    </button>
-                </div>
-                <div class="conteudo-cartao">
-                    <h3>Fulô</h3>
-                    <p>Restaurante com ambiente acolhedor e proposta regional contemporânea, valorizando ingredientes nordestinos e a cultura baiana em pratos criativos.</p>
-                </div>
-            </article>
+// ==================== BOTÕES DO CARROSSEL DE CARTÕES ====================
+const botaoAnteriorCartoes = document.querySelector('.botao-anterior-cartoes');
+const botaoProximoCartoes = document.querySelector('.botao-proximo-cartoes');
+const secaoCartoesAtiva = document.querySelectorAll('.secao-cartoes')[1] || document.querySelector('.secao-cartoes');
+const gradeCartoes = secaoCartoesAtiva ? secaoCartoesAtiva.querySelector('.grade-cartoes') : document.querySelector('.grade-cartoes');
 
-            <article class="card">
-                <div class="quadro-imagem-cartao">
-                    <img src="Beira.jpg" alt="Beira Mar" class="imagem-cartao">
-                    <button class="botao-favorito" aria-label="Favorito">
-                        <svg viewBox="0 0 24 24" width="22" height="22" fill="#FF4D4D">
-                            <path
-                                d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
-                        </svg>
-                    </button>
-                </div>
-                <div class="conteudo-cartao">
-                    <h3>Beira Mar</h3>
-                    <p>Restaurante tradicional da Bahia, com alimentos ligados a frutos do mar, moquecas e clima praiano “pé na areia.”</p>
-                </div>
-            </article>
+// Função de utilidade para rolar o carrossel horizontalmente
+let indiceExtraVisivel = 0;
 
-            <article class="card">
-                <div class="quadro-imagem-cartao">
-                    <img src="sabores.jpg" alt="Sabores locais" class="imagem-cartao">
-                    <button class="botao-favorito" aria-label="Favorito">
-                        <svg viewBox="0 0 24 24" width="22" height="22" fill="#FF4D4D">
-                            <path
-                                d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
-                        </svg>
-                    </button>
-                </div>
-                <div class="conteudo-cartao">
-                    <h3>Sabores locais</h3>
-                    <p>Conceito gastronômico focado na culinária regional baiana, destacando temperos típicos, receitas tradicionais e ingredientes locais.</p>
-                </div>
-            </article>
+function cardWidth() {
+    const primeiroCard = gradeCartoes ? gradeCartoes.querySelector('.card') : null;
+    if (!primeiroCard) return 340;
+    return primeiroCard.getBoundingClientRect().width + 16;
+}
 
-            <article class="card card-extra oculto">
-                <div class="quadro-imagem-cartao">
-                    <img src="mariquita.jpg" alt="Dona Mariquita" class="imagem-cartao">
-                    <button class="botao-favorito" aria-label="Favorito">
-                        <svg viewBox="0 0 24 24" width="22" height="22" fill="#FF4D4D">
-                            <path
-                                d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
-                        </svg>
-                    </button>
-                </div>
-                <div class="conteudo-cartao">
-                    <h3>Dona Mariquita</h3>
-                    <p>Um dos restaurantes culturais mais famosos de Salvador, reconhecido por preservar receitas afro-baianas e pratos históricos do Recôncavo.</p>
-                </div>
-            </article>
+function rolarCartoes(direcao) {
+    if (!gradeCartoes) return;
 
-            <article class="card card-extra oculto">
-                <div class="quadro-imagem-cartao">
-                    <img src="pa.tropical.jpg" alt="Paraíso Tropical" class="imagem-cartao">
-                    <button class="botao-favorito" aria-label="Favorito">
-                        <svg viewBox="0 0 24 24" width="22" height="22" fill="#FF4D4D">
-                            <path
-                                d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
-                        </svg>
-                    </button>
-                </div>
-                <div class="conteudo-cartao">
-                    <h3>Paraíso Tropical</h3>
-                    <p>Restaurante icônico que mistura culinária baiana contemporânea com ingredientes exóticos brasileiros e forte identidade cultural.</p>
-                </div>
-            </article>
+    const cardsExtras = Array.from(document.querySelectorAll('.card-extra'));
 
-            <article class="card card-extra oculto">
-                <div class="quadro-imagem-cartao">
-                    <img src="ki.jpg" alt="Ki-Mukeka" class="imagem-cartao">
-                    <button class="botao-favorito" aria-label="Favorito">
-                        <svg viewBox="0 0 24 24" width="22" height="22" fill="#FF4D4D">
-                            <path
-                                d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
-                        </svg>
-                    </button>
-                </div>
-                <div class="conteudo-cartao">
-                    <h3>Ki-Mukeka</h3>
-                    <p>Referência em moquecas e frutos do mar em Salvador, famoso pelo sabor marcante e pela experiência típica baiana.</p>
-                </div>
-            </article>
+    if (direcao > 0 && indiceExtraVisivel < cardsExtras.length) {
+        cardsExtras[indiceExtraVisivel].classList.remove('oculto');
+        indiceExtraVisivel += 1;
+    }
 
-            <article class="card card-extra oculto">
-                <div class="quadro-imagem-cartao">
-                    <img src="café.jpg" alt="Mocotó Café" class="imagem-cartao">
-                    <button class="botao-favorito" aria-label="Favorito">
-                        <svg viewBox="0 0 24 24" width="22" height="22" fill="#FF4D4D">
-                            <path
-                                d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
-                        </svg>
-                    </button>
-                </div>
-                <div class="conteudo-cartao">
-                    <h3>Mocotó Café</h3>
-                    <p>Restaurante/café da Chapada Diamantina que une culinária regional, ambiente artístico e elementos da cultura sertaneja baiana.</p>
-                </div>
-            </article>
+    if (direcao < 0 && indiceExtraVisivel > 0) {
+        indiceExtraVisivel -= 1;
+        cardsExtras[indiceExtraVisivel].classList.add('oculto');
+    }
 
-        </div>
-        <!-- Botões de navegação do carrossel de cards -->
-        <button class="botao-anterior-cartoes" aria-label="Voltar restaurantes">←</button>
-        <button class="botao-proximo-cartoes" aria-label="Ver mais restaurantes">→</button>
-    </section>
+    gradeCartoes.scrollBy({
+        left: direcao * cardWidth(),
+        behavior: 'smooth'
+    });
+}
 
-    <!-- ==================== PAINEL DE FILTROS ==================== -->
-    <div class="barra-filtro" id="barra-filtro">
-        <div class="cabecalho-filtro">
-            <h3>Filtros</h3>
-            <button class="botao-fechar-filtro" id="botao-fechar-filtro">✕</button>
-        </div>
+if (botaoAnteriorCartoes && gradeCartoes) {
+    botaoAnteriorCartoes.addEventListener('click', () => rolarCartoes(-1));
+}
 
-        <div class="corpo-filtro">
-
-            <div class="grupo-filtro">
-                <label class="titulo-filtro">Estabelecimentos</label>
-                <div class="grupo-checkbox">
-                    <label><input type="checkbox" checked> Bares</label>
-                    <label><input type="checkbox"> Restaurantes</label>
-                    <label><input type="checkbox"> Docerias</label>
-                    <label><input type="checkbox"> Lanches rápidos</label>
-                    <label><input type="checkbox"> Cafeterias</label>
-                </div>
-            </div>
-
-            <div class="grupo-filtro">
-                <label class="titulo-filtro">Preço</label>
-                <input type="range" min="1" max="4" value="4" class="faixa-preco">
-            </div>
-
-            <div class="grupo-filtro">
-                <label class="titulo-filtro">Ambientes</label>
-                <div class="grupo-checkbox">
-                    <label><input type="checkbox" checked> Aberto</label>
-                    <label><input type="checkbox"> Fechado</label>
-                    <label><input type="checkbox"> Com música</label>
-                    <label><input type="checkbox"> Área kids</label>
-                </div>
-            </div>
-
-        </div>
-
-        <div class="rodape-filtro">
-            <button class="botao-limpar-filtro" id="botao-limpar-filtro">Limpar</button>
-            <button class="botao-aplicar-filtro" id="botao-aplicar-filtro">Aplicar Filtros</button>
-        </div>
-    </div>
-
-    <div class="barra-filtro" id="barra-lista">
-        <div class="cabecalho-filtro">
-            <h3>Lista</h3>
-            <button class="botao-fechar-filtro" id="botao-fechar-lista">✕</button>
-        </div>
-
-        <div class="corpo-filtro">
-            <div class="grupo-filtro">
-                <label class="titulo-filtro">Ações rápidas</label>
-                <div class="lista-menu">
-                    <button type="button" class="item-lista" onclick="window.location.href='perfil.html'">Sua conta</button>
-                    <button type="button" class="item-lista">Histórico de restaurantes</button>
-                    <button type="button" class="item-lista" onclick="window.location.href='configuracoes.html'">Configurações</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="sobreposicao-filtro" id="sobreposicao-filtro"></div>
-
-    <script src="proxima.js"></script>
-</body>
-</html>
+if (botaoProximoCartoes && gradeCartoes) {
+    botaoProximoCartoes.addEventListener('click', () => rolarCartoes(1));
+}
