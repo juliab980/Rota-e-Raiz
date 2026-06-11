@@ -58,6 +58,32 @@
     <section class="secao-cartoes">
         <div class="cabecalho-cartoes">
             <div>
+                <span class="etiqueta-secao">Restaurantes destacados</span>
+                <h2>Restaurantes destacados</h2>
+            </div>
+        </div>
+
+        <div class="grade-cartoes fileira-destaque">
+            <article class="card">
+                <div class="quadro-imagem-cartao">
+                    <img src="CULINARIA_DE_TERREIRO-1-1.webp" alt="Culinária de terreiro" class="imagem-cartao">
+                    <button class="botao-favorito" aria-label="Favorito">
+                        <svg viewBox="0 0 24 24" width="22" height="22" fill="#FF4D4D">
+                            <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+                        </svg>
+                    </button>
+                </div>
+                <div class="conteudo-cartao">
+                    <h3>Culinária de terreiro</h3>
+                    <p>Pratos afro-baianos com tradição, sabor marcante e forte identidade cultural.</p>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <section class="secao-cartoes">
+        <div class="cabecalho-cartoes">
+            <div>
                 <span class="etiqueta-secao">Explorar restaurantes</span>
                 <h2>Promoções e favoritos</h2>
             </div>
@@ -134,7 +160,7 @@
                 </div>
             </article>
 
-            <article class="card">
+            <article class="card card-extra oculto">
                 <div class="quadro-imagem-cartao">
                     <img src="mariquita.jpg" alt="Dona Mariquita" class="imagem-cartao">
                     <button class="botao-favorito" aria-label="Favorito">
@@ -150,7 +176,7 @@
                 </div>
             </article>
 
-            <article class="card">
+            <article class="card card-extra oculto">
                 <div class="quadro-imagem-cartao">
                     <img src="pa.tropical.jpg" alt="Paraíso Tropical" class="imagem-cartao">
                     <button class="botao-favorito" aria-label="Favorito">
@@ -166,7 +192,7 @@
                 </div>
             </article>
 
-            <article class="card">
+            <article class="card card-extra oculto">
                 <div class="quadro-imagem-cartao">
                     <img src="ki.jpg" alt="Ki-Mukeka" class="imagem-cartao">
                     <button class="botao-favorito" aria-label="Favorito">
@@ -182,7 +208,7 @@
                 </div>
             </article>
 
-            <article class="card">
+            <article class="card card-extra oculto">
                 <div class="quadro-imagem-cartao">
                     <img src="café.jpg" alt="Mocotó Café" class="imagem-cartao">
                     <button class="botao-favorito" aria-label="Favorito">
@@ -197,11 +223,13 @@
                     <p>Restaurante/café da Chapada Diamantina que une culinária regional, ambiente artístico e elementos da cultura sertaneja baiana.</p>
                 </div>
             </article>
+
         </div>
         <!-- Botões de navegação do carrossel de cards -->
         <button class="botao-anterior-cartoes" aria-label="Voltar restaurantes">←</button>
         <button class="botao-proximo-cartoes" aria-label="Ver mais restaurantes">→</button>
     </section>
+
     <!-- ==================== PAINEL DE FILTROS ==================== -->
     <div class="barra-filtro" id="barra-filtro">
         <div class="cabecalho-filtro">
