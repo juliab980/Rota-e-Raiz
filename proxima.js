@@ -104,3 +104,48 @@ if (botaoAnteriorCartoes && gradeCartoes) {
 if (botaoProximoCartoes && gradeCartoes) {
     botaoProximoCartoes.addEventListener('click', () => rolarCartoes(1));
 }
+
+// ==================== CARROSSEL AUTOMÁTICO DOS DESTAQUES ====================
+const destaqueViewport = document.querySelector('.destaque-viewport');
+const destaqueTrack = document.querySelector('.destaque-track');
+
+if (destaqueViewport && destaqueTrack) {
+    const destaqueSlides = Array.from(destaqueTrack.children);
+    let destaqueIndex = 0;
+    let intervalo;
+
+    function getDestaqueStep() {
+        const slide = destaqueSlides[0];
+        if (!slide) return 0;
+        const gap = parseFloat(getComputedStyle(destaqueTrack).columnGap || getComputedStyle(destaqueTrack).gap || '0');
+        return slide.getBoundingClientRect().width + gap;
+    }
+
+    function atualizarDestaque() {
+        destaqueTrack.style.transition = 'transform 0.65s cubic-bezier(0.22, 1, 0.36, 1)';
+        destaqueTrack.style.transform = `translateX(-${destaqueIndex * getDestaqueStep()}px)`;
+
+        destaqueSlides.forEach((slide, index) => {
+            slide.classList.toggle('active', index === destaqueIndex);
+        });
+    }
+
+    function avancarDestaque() {
+        destaqueIndex = (destaqueIndex + 1) % destaqueSlides.length;
+        atualizarDestaque();
+    }
+
+    function iniciarRotacao() {
+        clearInterval(intervalo);
+        intervalo = setInterval(avancarDestaque, 5000);
+    }
+
+    destaqueViewport.addEventListener('mouseenter', () => clearInterval(intervalo));
+    destaqueViewport.addEventListener('mouseleave', iniciarRotacao);
+    destaqueTrack.addEventListener('mouseenter', () => clearInterval(intervalo));
+    destaqueTrack.addEventListener('mouseleave', iniciarRotacao);
+
+    window.addEventListener('resize', atualizarDestaque);
+    iniciarRotacao();
+    atualizarDestaque();
+}
