@@ -64,7 +64,7 @@
         </div>
 
         <div class="destaque-viewport">
-            <div class="grade-cartoes fileira-destaque destaque-track">
+            <div class="grade-cartoes fileira-destaque destaque-track cards-container" id="cardsContainer">
                 <article class="card destaque-slide">
                     <div class="quadro-imagem-cartao">
                         <img src="CULINARIA_DE_TERREIRO-1-1.webp" alt="Culinária de terreiro" class="imagem-cartao">
@@ -127,7 +127,9 @@
             </button>
         </div>
 
-    <div class="grade-cartoes">
+    <div class="carrossel-restaurantes">
+        <button class="botao-anterior-cartoes" aria-label="Voltar restaurantes">←</button>
+        <div class="grade-cartoes" id="grade-restaurantes">
             <article class="card">
                 <div class="quadro-imagem-cartao">
                     <img src="CULINARIA_DE_TERREIRO-1-1.webp" alt="Culinária de terreiro" class="imagem-cartao">
@@ -257,9 +259,8 @@
             </article>
 
         </div>
-        <!-- Botões de navegação do carrossel de cards -->
-        <button class="botao-anterior-cartoes" aria-label="Voltar restaurantes">←</button>
         <button class="botao-proximo-cartoes" aria-label="Ver mais restaurantes">→</button>
+    </div>
     </section>
 
     <!-- ==================== PAINEL DE FILTROS ==================== -->
