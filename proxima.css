@@ -582,6 +582,172 @@ body {
 #barra-lista {
     background: #1F2A1F;
 }
+
+.barra-detalhes {
+    position: fixed;
+    top: 0;
+    right: -420px;
+    width: 420px;
+    max-width: 100%;
+    height: 100vh;
+    background: #1f2a1f;
+    box-shadow: -15px 0 40px rgba(0, 0, 0, 0.45);
+    transition: right 0.45s cubic-bezier(0.32, 0.72, 0, 1);
+    z-index: 1005;
+    display: flex;
+    flex-direction: column;
+    color: #f1ecd9;
+    border-radius: 20px 0 0 20px;
+    overflow: hidden;
+}
+.barra-detalhes.open {
+    right: 0;
+}
+
+.cabecalho-detalhes,
+.cabecalho-filtro {
+    padding: 1.6rem 1.6rem 1.2rem;
+    border-bottom: 1px solid rgba(250, 240, 230, 0.12);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.15);
+}
+
+.imagem-detalhes {
+    width: 100%;
+    min-height: 240px;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.imagem-detalhes img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.corpo-detalhes {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 1.5rem 1.6rem 2rem;
+    gap: 1rem;
+    overflow-y: auto;
+}
+
+.conteudo-detalhes {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.conteudo-detalhes p {
+    margin: 0;
+    line-height: 1.5;
+    color: rgba(241, 236, 217, 0.95);
+}
+
+.acoes-detalhes {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-top: 0.5rem;
+}
+
+.botao-cta-detalhes {
+    width: 100%;
+    padding: 1rem;
+    border: none;
+    border-radius: 999px;
+    background: #f1d16e;
+    color: #1f2a1f;
+    font-weight: 800;
+    cursor: pointer;
+    box-shadow: 0 12px 24px rgba(241, 236, 217, 0.2);
+    transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.botao-cta-detalhes:hover {
+    background: #ffe58a;
+    transform: translateY(-1px);
+    box-shadow: 0 14px 28px rgba(241, 236, 217, 0.28);
+}
+
+.box-comentario {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+}
+
+.box-comentario label {
+    color: #f1ecd9;
+    font-weight: 600;
+}
+
+.box-comentario textarea {
+    width: 100%;
+    min-height: 120px;
+    resize: vertical;
+    border-radius: 18px;
+    border: 1px solid rgba(241, 236, 217, 0.2);
+    background: rgba(250, 240, 230, 0.1);
+    color: #f1ecd9;
+    padding: 1rem;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.95rem;
+    outline: none;
+    transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.box-comentario textarea:focus {
+    border-color: #f1d16e;
+    background: rgba(250, 240, 230, 0.18);
+}
+
+.botao-secundario-detalhes {
+    width: 100%;
+    padding: 1rem;
+    border: 2px solid rgba(241, 236, 217, 0.18);
+    border-radius: 999px;
+    background: transparent;
+    color: #f1ecd9;
+    cursor: pointer;
+    font-weight: 700;
+    transition: background-color 0.2s ease, transform 0.2s ease, border-color 0.2s ease;
+}
+
+.botao-secundario-detalhes:hover {
+    background: rgba(250, 240, 230, 0.08);
+    transform: translateY(-1px);
+    border-color: rgba(241, 236, 217, 0.36);
+}
+
+.detalhe-item {
+    display: flex;
+    justify-content: space-between;
+    gap: 0.5rem;
+    background: rgba(250, 240, 230, 0.06);
+    border: 1px solid rgba(250, 240, 230, 0.1);
+    border-radius: 16px;
+    padding: 0.95rem 1rem;
+    font-size: 0.96rem;
+}
+
+.detalhe-item strong {
+    color: #f1ecd9;
+}
+
+
+@media (max-width: 900px) {
+    .barra-detalhes {
+        width: 100%;
+        right: -100%;
+        border-radius: 0;
+    }
+}
 .sobreposicao-filtro {
     position: fixed;
     inset: 0;
@@ -609,7 +775,8 @@ body {
     font-weight: 700;
     color: #FAF0E6;
 }
-.botao-fechar-filtro {
+.botao-fechar-filtro,
+.botao-fechar-detalhes {
     background: rgba(250, 240, 230, 0.1);
     border: none;
     color: #FAF0E6;
@@ -620,7 +787,8 @@ body {
     cursor: pointer;
     transition: background 0.2s ease;
 }
-.botao-fechar-filtro:hover {
+.botao-fechar-filtro:hover,
+.botao-fechar-detalhes:hover {
     background: rgba(250, 240, 230, 0.25);
 }
 .corpo-filtro {
