@@ -64,16 +64,17 @@ botaoAplicarFiltro.addEventListener('click', () => {
 // ==================== BOTÕES DO CARROSSEL DE CARTÕES ====================
 const botaoAnteriorCartoes = document.querySelector('.botao-anterior-cartoes');
 const botaoProximoCartoes = document.querySelector('.botao-proximo-cartoes');
-const secaoCartoesAtiva = document.querySelectorAll('.secao-cartoes')[1] || document.querySelector('.secao-cartoes');
-const gradeCartoes = secaoCartoesAtiva ? secaoCartoesAtiva.querySelector('.grade-cartoes') : document.querySelector('.grade-cartoes');
+const gradeCartoes = document.getElementById('grade-restaurantes');
 
-// Função de utilidade para rolar o carrossel horizontalmente
 let indiceExtraVisivel = 0;
 
 function cardWidth() {
     const primeiroCard = gradeCartoes ? gradeCartoes.querySelector('.card') : null;
-    if (!primeiroCard) return 340;
-    return primeiroCard.getBoundingClientRect().width + 16;
+    if (!primeiroCard) return 296;
+
+    const estilo = getComputedStyle(gradeCartoes);
+    const gap = parseFloat(estilo.columnGap || estilo.gap || '16');
+    return primeiroCard.getBoundingClientRect().width + gap;
 }
 
 function rolarCartoes(direcao) {
@@ -105,47 +106,55 @@ if (botaoProximoCartoes && gradeCartoes) {
     botaoProximoCartoes.addEventListener('click', () => rolarCartoes(1));
 }
 
-// ==================== CARROSSEL AUTOMÁTICO DOS DESTAQUES ====================
-const destaqueViewport = document.querySelector('.destaque-viewport');
-const destaqueTrack = document.querySelector('.destaque-track');
+(function () {
+    const container = document.getElementById('cardsContainer');
+    if (!container) return;
 
-if (destaqueViewport && destaqueTrack) {
-    const destaqueSlides = Array.from(destaqueTrack.children);
-    let destaqueIndex = 0;
-    let intervalo;
+    const cards = Array.from(container.querySelectorAll('.card'));
+    if (!cards.length) return;
 
-    function getDestaqueStep() {
-        const slide = destaqueSlides[0];
-        if (!slide) return 0;
-        const gap = parseFloat(getComputedStyle(destaqueTrack).columnGap || getComputedStyle(destaqueTrack).gap || '0');
-        return slide.getBoundingClientRect().width + gap;
+    function goToIndex(index) {
+        const card = cards[index];
+        if (!card) return;
+        card.scrollIntoView({ behavior: 'smooth', inline: 'start', block: 'nearest' });
     }
 
-    function atualizarDestaque() {
-        destaqueTrack.style.transition = 'transform 0.65s cubic-bezier(0.22, 1, 0.36, 1)';
-        destaqueTrack.style.transform = `translateX(-${destaqueIndex * getDestaqueStep()}px)`;
+    function syncActive() {
+        const containerRect = container.getBoundingClientRect();
+        const containerCenterX = containerRect.left + containerRect.width / 2;
 
-        destaqueSlides.forEach((slide, index) => {
-            slide.classList.toggle('active', index === destaqueIndex);
+        let bestIndex = 0;
+        let bestDistance = Infinity;
+
+        cards.forEach((card, idx) => {
+            const r = card.getBoundingClientRect();
+            const cardCenterX = r.left + r.width / 2;
+            const distance = Math.abs(cardCenterX - containerCenterX);
+            if (distance < bestDistance) {
+                bestDistance = distance;
+                bestIndex = idx;
+            }
         });
+
+        cards.forEach((c, idx) => c.classList.toggle('active', idx === bestIndex));
     }
 
-    function avancarDestaque() {
-        destaqueIndex = (destaqueIndex + 1) % destaqueSlides.length;
-        atualizarDestaque();
+    let index = Math.max(0, cards.findIndex((c) => c.classList.contains('active')));
+
+    function tick() {
+        index = (index + 1) % cards.length;
+        goToIndex(index);
     }
 
-    function iniciarRotacao() {
-        clearInterval(intervalo);
-        intervalo = setInterval(avancarDestaque, 5000);
-    }
+    window.addEventListener('resize', syncActive);
 
-    destaqueViewport.addEventListener('mouseenter', () => clearInterval(intervalo));
-    destaqueViewport.addEventListener('mouseleave', iniciarRotacao);
-    destaqueTrack.addEventListener('mouseenter', () => clearInterval(intervalo));
-    destaqueTrack.addEventListener('mouseleave', iniciarRotacao);
+    container.addEventListener('scroll', () => {
+        window.clearTimeout(container.__syncTimer);
+        container.__syncTimer = window.setTimeout(syncActive, 80);
+    });
 
-    window.addEventListener('resize', atualizarDestaque);
-    iniciarRotacao();
-    atualizarDestaque();
-}
+    syncActive();
+
+    const intervalMs = 7000;
+    setInterval(tick, intervalMs);
+})();
