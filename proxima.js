@@ -1,4 +1,5 @@
 // ====================== FILTROS ======================
+// referências de elementos usados pelo painel de filtros/lista e overlay
 const botaoAbrirFiltro = document.getElementById('botao-abrir-filtro');
 const barraFiltro = document.getElementById('barra-filtro');
 const botaoAbrirLista = document.getElementById('botao-abrir-lista');
@@ -9,10 +10,47 @@ const botaoFecharLista = document.getElementById('botao-fechar-lista');
 const botaoLimparFiltro = document.getElementById('botao-limpar-filtro');
 const botaoAplicarFiltro = document.getElementById('botao-aplicar-filtro');
 
+const barraDetalhes = document.getElementById('barra-detalhes');
+const botaoFecharDetalhes = document.getElementById('botao-fechar-detalhes');
+const detalhesTitulo = document.getElementById('detalhes-titulo');
+const detalhesImagem = document.getElementById('detalhes-imagem');
+const detalhesDescricao = document.getElementById('detalhes-descricao');
+const detalhesEndereco = document.getElementById('detalhes-endereco');
+const detalhesHorario = document.getElementById('detalhes-horario');
+const detalhesEspecialidade = document.getElementById('detalhes-especialidade');
+const botaoAdicionarComentario = document.getElementById('botao-adicionar-comentario');
+const botaoLerHistoria = document.getElementById('botao-ler-historia');
+const comentarioInput = document.getElementById('comentario-input');
+
 function closePanels() {
+    // Fecha todos os painéis laterais e oculta o overlay
     barraFiltro.classList.remove('open');
     barraLista.classList.remove('open');
+    if (barraDetalhes) barraDetalhes.classList.remove('open');
     sobreposicaoFiltro.classList.remove('active');
+}
+
+function openDetails(card) {
+    // abre o painel de detalhes com os dados do card selecionado
+    if (!barraDetalhes || !detalhesTitulo || !detalhesImagem || !detalhesDescricao) return;
+    closePanels();
+
+    const titulo = card.querySelector('h3')?.textContent?.trim() || 'Restaurante';
+    const descricao = card.querySelector('.conteudo-cartao p')?.textContent?.trim() || 'Descrição não disponível.';
+    const imagem = card.querySelector('.imagem-cartao');
+    const imagemSrc = imagem?.getAttribute('src') || '';
+    const imagemAlt = imagem?.getAttribute('alt') || titulo;
+
+    detalhesTitulo.textContent = titulo;
+    detalhesDescricao.textContent = descricao;
+    detalhesImagem.setAttribute('src', imagemSrc);
+    detalhesImagem.setAttribute('alt', imagemAlt);
+    detalhesEndereco.textContent = 'Av. Central, 100'; // valor fixo por enquanto
+    detalhesHorario.textContent = '11h às 23h';
+    detalhesEspecialidade.textContent = titulo.includes('Beira') ? 'Frutos do mar' : 'Cozinha regional';
+
+    barraDetalhes.classList.add('open');
+    sobreposicaoFiltro.classList.add('active');
 }
 
 // Abrir filtros
@@ -22,7 +60,7 @@ botaoAbrirFiltro.addEventListener('click', () => {
     sobreposicaoFiltro.classList.add('active');
 });
 
-// Abrir lista
+// Abrir painel de lista rápida
 botaoAbrirLista.addEventListener('click', () => {
     closePanels();
     barraLista.classList.add('open');
@@ -39,6 +77,7 @@ document.addEventListener('keydown', (e) => {
 });
 
 // ==================== LIMPAR FILTROS (CORRIGIDO) ====================
+// reseta todos os controles do painel de filtro
 botaoLimparFiltro.addEventListener('click', () => {
     const checkboxes = barraFiltro.querySelectorAll('input[type="checkbox"]');
     
@@ -62,6 +101,7 @@ botaoAplicarFiltro.addEventListener('click', () => {
 });
 
 // ==================== BOTÕES DO CARROSSEL DE CARTÕES ====================
+// navegação lateral e cards extras que aparecem conforme o usuário avança
 const botaoAnteriorCartoes = document.querySelector('.botao-anterior-cartoes');
 const botaoProximoCartoes = document.querySelector('.botao-proximo-cartoes');
 const gradeCartoes = document.getElementById('grade-restaurantes');
@@ -106,6 +146,39 @@ if (botaoProximoCartoes && gradeCartoes) {
     botaoProximoCartoes.addEventListener('click', () => rolarCartoes(1));
 }
 
+const cardRestaurantes = Array.from(document.querySelectorAll('#grade-restaurantes .card'));
+cardRestaurantes.forEach(card => {
+    // cada card abre o painel de detalhes ao ser clicado
+    const botaoFavoritoCard = card.querySelector('.botao-favorito');
+    if (botaoFavoritoCard) {
+        botaoFavoritoCard.addEventListener('click', (event) => {
+            event.stopPropagation();
+        });
+    }
+
+    card.addEventListener('click', (event) => {
+        if (event.target.closest('.botao-favorito')) return;
+        openDetails(card);
+    });
+});
+
+if (botaoFecharDetalhes) {
+    botaoFecharDetalhes.addEventListener('click', closePanels);
+}
+
+if (botaoLerHistoria) {
+    botaoLerHistoria.addEventListener('click', () => {
+        alert('Ler sua história em breve. Esta ação pode abrir uma página de perfil ou narrativa.');
+    });
+}
+
+if (botaoAdicionarComentario && comentarioInput) {
+    // ao clicar em adicionar comentário, o foco vai para a textarea
+    botaoAdicionarComentario.addEventListener('click', () => {
+        comentarioInput.focus();
+    });
+}
+
 (function () {
     const container = document.getElementById('cardsContainer');
     if (!container) return;
@@ -146,6 +219,7 @@ if (botaoProximoCartoes && gradeCartoes) {
         goToIndex(index);
     }
 
+    // recalcula card ativo quando a janela muda de tamanho
     window.addEventListener('resize', syncActive);
 
     container.addEventListener('scroll', () => {
