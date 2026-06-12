@@ -14,6 +14,8 @@ JAVASCRIPT
 
 VISUAL STUDIO CODE
 
+BOOTSTRAP
+
 
 Nosso projeto:
 
